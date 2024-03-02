@@ -1,0 +1,68 @@
+-- 1
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users(
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_name TEXT,
+  last_name TEXT,
+  user_age INTEGER,
+  phone_number INTEGER,
+  user_email TEXT,
+  user_address TEXT
+);
+
+INSERT INTO users(user_name, last_name, user_age, phone_number, user_email, user_address)
+VALUES 
+('Muhammadqodir', 'Toxtanazarov', 20, 910436551, 'toxtanazarovmuhammadqodir@gmail.com', 'Yozyovon'),
+('Toxir', 'Jalilov', 23, 903452165, 'toxirjalilov43@gmail.com', 'Fargona'),
+('Kamol', 'Alijonov', 34, 990456378, 'alijonovkamol54@gmail.com', 'Quva'),
+('Rustam', 'Qodirov', 18, 912314563, 'qodirovrustam2341@gmail.com', 'Andijon'),
+('Hokimjon', 'Qayumov', 43, 912345467, 'hokimjonqayumov@gmail.com', 'Namangan');
+UPDATE users
+SET user_age = 21, phone_number = 912345678, user_email = 'newemail@gmail.com', user_address = 'Toshkent'
+WHERE user_name IN ('Hokimjon', 'Toxir');
+DELETE FROM users
+WHERE user_name = 'Rustam';
+
+
+
+--2
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS categories;
+
+CREATE TABLE IF NOT EXISTS categories(
+	kategoriya_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	kategoriya_name VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS products(
+    product_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_name TEXT,
+    product_cost INTEGER,
+    kategoriya_id INTEGER REFERENCES categories(kategoriya_id)
+);
+
+
+INSERT INTO categories(kategoriya_name) VALUES 
+('Vegetable'),
+('Meat'),
+('Sweets'),
+('Bread');
+
+
+INSERT INTO products(product_name, product_cost, kategoriya_id) VALUES
+('Teshik kulcha', 30000, 4),
+('Shokolad', 100000, 3),
+('Sabzi', 10000, 1),
+('Karam', 10000, 1),
+('Qoy goshti', 100000, 2),
+('Mol goshti', 90000, 2),
+('Bodiring', 10000, 1),
+('Non', 4000, 4);
+
+
+
+
+SELECT product_id, product_name, kategoriya_name FROM products JOIN categories
+ON products.kategoriya_id = categories.kategoriya_id;
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

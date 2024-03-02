@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Najot Ta'lim 4 - oy.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="1475"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainbrands"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="CARS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="63"/><column index="2" value="68"/><column index="3" value="56"/><column index="4" value="54"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="STUDENTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="103"/><column index="2" value="103"/><column index="3" value="99"/><column index="4" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="courses" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="94"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="89"/><column index="2" value="52"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="students" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="103"/><column index="2" value="96"/><column index="3" value="94"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1"> DROP TABLE IF EXISTS STUDENTS;
+-- CREATE TABLE IF NOT EXISTS STUDENTS(
+--   student_id INTEGER NOT NULL UNIQUE,
+--   first_name TEXT,
+--   last_name TEXT,
+--   course TEXT
+-- );
+-- 
+-- INSERT INTO STUDENTS(student_id, first_name, last_name, course) VALUES (1, 'Muhammadqodir', 'Toxtanazarov', 'Python');
+-- UPDATE STUDENTS SET first_name = 'Sobir', last_name = 'Jalil' WHERE student_id = 1;
+-- DELETE FROM STUDENTS WHERE student_id = 3;
+-- SELECT * FROM STUDENTS;
+
+
+
+
+
+-- DROP TABLE IF EXISTS CARS;
+-- CREATE TABLE IF NOT EXISTS CARS(
+--   car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--   modeli TEXT,
+--   tezlik INTEGER,
+--   rangi TEXT
+-- );
+-- 
+-- INSERT INTO CARS(modeli, tezlik, rangi)
+-- VALUES 
+-- ('Malibu', 160, 'oq'),
+-- ('Nexia', 200, 'qora'),
+-- ('Jentra', 220, 'qizil');
+
+
+-- DROP TABLE IF EXISTS students;
+-- DROP TABLE IF EXISTS courses;
+-- CREATE TABLE IF NOT EXISTS courses(
+--      course_id INTEGER PRIMARY KEY AUTOINCREMENT,
+-- 	 course_name VARCHAR (20)
+-- );
+-- 
+-- CREATE TABLE IF NOT EXISTS students(
+--      student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+-- 	 full_name TEXT,
+-- 	 course_id INTEGER REFERENCES courses(course_id)
+-- );
+-- INSERT INTO courses(course_name) VALUES ('Python'), ('C#'), ('Desing'), ('Marketing');
+-- INSERT INTO students(full_name, course_id) VALUES
+--  ('Muhammadqodir Toxtanazarov', 3),
+--  ('Toxir Sobirov', 2),
+--  ('Sobir Toxirov', 1),
+--  ('Jalil Jadidov', 4);
+--  SELECT student_id, full_name, course_name FROM students JOIN courses ON students.course_id = courses.course_id;
+ 
+ 
+
+
+
+
+DROP TABLE IF EXISTS cars;
+DROP TABLE IF EXISTS brands;
+CREATE TABLE IF NOT EXISTS brands(
+   brand_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   brand_name TEXT
+);
+
+CREATE TABLE IF NOT EXISTS cars(
+   car_id INTEGER PRIMARY KEY AUTOINCREMENT,
+   car_name TEXT,
+   brand_id INTEGER REFERENCES brands(brand_id)
+);
+INSERT INTO brands(brand_name) VALUES ('Chevrolet'), ('Bugatti'), ('BMW');
+INSERT INTO cars(car_name, brand_id) VALUES 
+('Nexia 1', 1),
+('BMW i8', 3),
+('Bugati', 2);
+   
+   
+SELECT car_id, car_name, brand_name FROM cars JOIN brands ON cars.brand_id = brands.brand_id;
+
+
+
+
+
+
+
+
+
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

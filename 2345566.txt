@@ -1,0 +1,28 @@
+CREATE TABLE brands (
+    brand_id INTEGER PRIMARY KEY,
+    brand_name VARCHAR(50)
+);
+
+CREATE TABLE models (
+    model_id INTEGER PRIMARY KEY,
+    model_name VARCHAR(100),
+    model_price INTEGER,
+    count INTEGER,
+    brand_id INTEGER, FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+);
+INSERT INTO brands (brand_id, brand_name) 
+VALUES 
+(1, 'Apple'),
+(2, 'Samsung'),
+(3, 'Nokia');
+
+INSERT INTO models(model_id, model_name, model_price, count, brand_id) values
+(1, 'Samsung Galaxy S10 +', 200, 21, 2),
+(2, 'IPHONE 12', 400, 12, 1),
+(3, 'Afsonaviy yong''oq chaqar', 10, 10, 3),
+(4, 'Samsung Galaxy A 53', 350, 17, 2);
+  
+
+
+
+

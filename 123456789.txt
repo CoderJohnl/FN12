@@ -1,0 +1,45 @@
+CREATE TABLE brands (
+    brand_id INT PRIMARY KEY,
+    brand_name VARCHAR(50)
+);
+
+CREATE TABLE models (
+    model_id INT PRIMARY KEY,
+    model_name VARCHAR(100),
+    model_price DECIMAL(10, 2),
+    count INT,
+    brand_id INT,
+    FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+);
+INSERT INTO brands (brand_id, brand_name) 
+VALUES 
+(1, 'Apple'),
+(2, 'Samsung'),
+(3, 'Nokia');
+INSERT INTO models (model_id, model_name, model_price, count, brand_id) 
+VALUES 
+(1, 'iPhone 13', 999.99, 50, 1),   -- Apple brand_id = 1
+(2, 'Galaxy S21', 799.99, 75, 2),  -- Samsung brand_id = 2
+(3, 'Nokia 8.3', 499.99, 30, 3);    -- Nokia brand_id = 3
+
+
+
+
+
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    full_name VARCHAR(100),
+    age INT,
+    email VARCHAR(100),
+    phone VARCHAR(15),
+    address VARCHAR(255)
+);
+INSERT INTO employees (employee_id, full_name, age, email, phone, address) 
+VALUES 
+(1, 'John Smith', 35, 'john@example.com', '123456789', '123 Main St'),
+(2, 'Alice Johnson', 28, 'alice@example.com', '987654321', '456 Elm St'),
+(3, 'Michael Brown', 42, 'michael@example.com', '456123789', '789 Oak St'),
+(4, 'Emily Davis', 31, 'emily@example.com', '789456123', '321 Pine St');
+ALTER TABLE employees
+DROP COLUMN address;

@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS products (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(255),
+    price INTEGER CHECK(price > 0)
+);
+
+
+
+
+DROP TABLE IF EXISTS automobiles;
+CREATE TABLE IF NOT EXISTS automobiles (
+    cars_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    car_name VARCHAR(255) NOT NULL,
+    price DECIMAL CHECK(price >= 0),
+    speed INTEGER CHECK(speed >= 0 AND speed BETWEEN 0 AND 300)
+);
+INSERT INTO automobiles (car_name, price, speed) VALUES 
+('Toyota Camry', 25000, 150),
+('Honda Civic', 22000, 140),
+('Ford Mustang', 35000, 200),
+('BMW 3 Series', 40000, 180),
+('Audi A4', 38000, 170);
+
+ALTER TABLE automobiles ADD COLUMN manufacturing_year INTEGER;
+ALTER TABLE automobiles ADD COLUMN color VARCHAR(50);
+ALTER TABLE automobiles RENAME TO cars;
+SELECT * FROM cars;

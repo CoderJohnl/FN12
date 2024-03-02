@@ -1,0 +1,53 @@
+CREATE TABLE IF NOT EXISTS books(
+	book_id INTEGER GENERATED ALWAYS AS IDENTITY,
+	pages INTEGER,
+	autos Varchar(30)
+);
+
+ALTER TABLE books
+RENAME pages to sahifalar;
+
+ALTER TABLE books
+rename autos to avtomobillar;
+
+ALTER TABLE books
+rename book_id to kitob_id;
+
+ALTER TABLE books
+rename to "kitoblar"
+
+select * from kitoblar;
+
+
+
+
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    full_name VARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(100),
+    address VARCHAR(200)
+);
+ALTER TABLE users
+ADD COLUMN qosimcha_malumot TEXT,
+ADD COLUMN tillarni_bilishi text;
+
+ALTER TABLE users
+RENAME TO "foydalanuvchilar";
+
+ALTER TABLE foydalanuvchilar
+rename user_id to foydalanuvchi_id;
+
+ALTER TABLE foydalanuvchilar
+rename full_name to foydalanuvchi_ismi;
+
+ALTER TABLE foydalanuvchilar
+rename phone to foydalanuvchi_tel;
+
+ALTER TABLE foydalanuvchilar
+rename email to foydalanuvchi_email;
+
+ALTER TABLE foydalanuvchilar
+rename address to foydalanuvchi_addresi;
+
+SELECT * FROM foydalanuvchilar;
